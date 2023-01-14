@@ -45,7 +45,7 @@ const Navbar = () => {
                   : "navbarListItemName"
               }
             >
-              Person
+              Offers
             </p>
           </li>
           <li className="navbarListItem">

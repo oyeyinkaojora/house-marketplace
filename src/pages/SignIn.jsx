@@ -46,9 +46,9 @@ const SignIn = () => {
 
   return (
     <>
-      <div className="PageContainer">
+      <div className="pageContainer">
         <header>
-          <p className="PageHeader">Welcome Back!</p>
+          <p className="pageHeader">Welcome Back!</p>
         </header>
 
         <form onSubmit={onSubmit}>
