@@ -65,7 +65,7 @@ const SignUp = () => {
     <>
       <div className="pageContainer">
         <header>
-          <p className="pageHeader">Welcome Back!</p>
+          <p className="PageHeader">Welcome Back!</p>
         </header>
 
         <form onSubmit={onSubmit}>

@@ -17,7 +17,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 
 const CreateListing = () => {
   // eslint-disable-next-line no-unused-vars
-  const [geolocationEnabled, setGeoLocationEnabled] = useState(true);
+  const [geolocationEnabled, setGeoLocationEnabled] = useState(false);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     type: "rent",
@@ -96,7 +96,7 @@ const CreateListing = () => {
       );
 
       const data = await response.json();
-      console.log(data)
+      console.log(data);
 
       geolocation.lat = data.results[0]?.geometry.location.lat ?? 0;
       geolocation.lng = data.results[0]?.geometry.location.lng ?? 0;
@@ -170,10 +170,10 @@ const CreateListing = () => {
       ...formData,
       imgUrls,
       geolocation,
-      timestamp: serverTimestamp() ,
+      timestamp: serverTimestamp(),
     };
 
-    formData.location = address
+    formData.location = address;
     delete formDataCopy.images;
     delete formDataCopy.address;
     !formDataCopy.offer && delete formDataCopy.discountedPrice;
@@ -456,4 +456,3 @@ const CreateListing = () => {
 };
 
 export default CreateListing;
-

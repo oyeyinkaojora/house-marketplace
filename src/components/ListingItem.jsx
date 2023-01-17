@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import { ReactComponent as DeleteIcon } from "../assets/svg/deleteIcon.svg";
+import { ReactComponent as EditIcon } from "../assets/svg/editIcon.svg";
 import { ReactComponent as BedIcon } from "../assets/svg/bedIcon.svg";
 import { ReactComponent as BathTubIcon } from "../assets/svg/bathtubIcon.svg";
 
-const ListingItem = ({ listing, id , onDelete }) => {
+const ListingItem = ({ listing, id, onDelete, onEdit }) => {
   return (
     <li className="categoryListing">
       <Link
@@ -12,7 +13,7 @@ const ListingItem = ({ listing, id , onDelete }) => {
         to={`/category/${listing.type}/${id}`}
       >
         <img
-          src={listing.imageUrls[0]}
+          src={listing.imgUrls[0]}
           alt={listing.name}
           className="categoryListingImg"
         />
@@ -37,7 +38,7 @@ const ListingItem = ({ listing, id , onDelete }) => {
                 ? `${listing.bedrooms} Bedrooms`
                 : "1 Bedroom"}
             </p>
-            <BathTubIcon/>
+            <BathTubIcon />
             <p className="categoryListingInfoText">
               {listing.bedrooms > 1
                 ? `${listing.bathrooms} Bathrooms`
@@ -47,9 +48,14 @@ const ListingItem = ({ listing, id , onDelete }) => {
         </div>
       </Link>
       {onDelete && (
-        <DeleteIcon className="removeIcon" fill="rgb(231,76,60)" onClick={() => onDelete(listing.id,listing.name)} />
-      ) }
-      
+        <DeleteIcon
+          className="removeIcon"
+          fill="rgb(231,76,60)"
+          onClick={() => onDelete(listing.id, listing.name)}
+        />
+      )}
+
+      {onEdit && <EditIcon className="editIcon" onClick={() => onEdit(id)} />}
     </li>
   );
 };
